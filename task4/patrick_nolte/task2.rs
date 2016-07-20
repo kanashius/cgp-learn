@@ -1,9 +1,12 @@
-struct Swagger<T: std::fmt::Display> {
+use std::fmt::Display;
+use std::fmt;
+
+struct Swagger<T: Display> {
     value: T,
 }
 
-impl<T: std::fmt::Display> std::fmt::Display for Swagger<T> {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+impl<T: Display> Display for Swagger<T> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "#swag {} #yolo", self.value)
     }
 }
